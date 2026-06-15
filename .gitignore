@@ -1,0 +1,20 @@
+# 忽略 Mac 系統垃圾檔案
+.DS_Store
+.DS_Store?
+*/.DS_Store
+
+# 忽略 Python 虛擬環境
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# 忽略日誌與暫存檔
+*.log
+.vscode/
+
+# 忽略巨型 AI 模型權重檔（非常重要！）
+*.pt
+*.pth
+*.onnx
+weights/

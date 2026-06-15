@@ -1,0 +1,10 @@
+# 1. 設定資料集的絕對路徑（或是相對於執行訓練位置的相對路徑）
+path: ./dataset 
+train: images/train  # 訓練集圖片路徑
+val: images/val      # 驗證集圖片路徑
+# test: images/test    # 先註解掉，確保訓練順利
+
+# 2. 關鍵點（Keypoints）設定：YOLO Pose 預設是人體的 17 個關鍵點
+kpt_shape: [17, 3] 
+names:
+  0: person # 我們只辨識「人」這一種類別

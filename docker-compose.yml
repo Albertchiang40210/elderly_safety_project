@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # 高齡安全專案的資料庫
+  elderly_db:
+    image: mysql:8.0
+    container_name: elderly_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: P@ssw0rd           # 🟢 修正：對齊 Python 的密碼
+      MYSQL_DATABASE: elderly_safety_db       # 🟢 修正：對齊 Python 的資料庫名稱
+    ports:
+      - "3308:3306"
+    volumes:
+      - elderly_db_data:/var/lib/mysql
+
+  # 高齡安全專案的後端 API
+  elderly_backend:
+    build: .
+    container_name: elderly_api_service
+    restart: always
+    ports:
+      - "8001:8000"
+    environment:
+      - DB_HOST=elderly_db                    # 🟢 新增：傳遞環境變數給 Python，讓它自動變通連線到這裡
+    depends_on:
+      - elderly_db
+
+volumes:
+  elderly_db_data:
