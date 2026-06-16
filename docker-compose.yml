@@ -5,7 +5,7 @@ services:
   elderly_db:
     image: mysql:8.0
     container_name: elderly_mysql
-    restart: always
+    restart: "no"
     environment:
       MYSQL_ROOT_PASSWORD: P@ssw0rd           # 🟢 修正：對齊 Python 的密碼
       MYSQL_DATABASE: elderly_safety_db       # 🟢 修正：對齊 Python 的資料庫名稱
