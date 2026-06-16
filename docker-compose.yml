@@ -18,7 +18,7 @@ services:
   elderly_backend:
     build: .
     container_name: elderly_api_service
-    restart: none
+    restart: "no"
     ports:
       - "8001:8000"
     environment:
